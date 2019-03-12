@@ -10,11 +10,20 @@ export const store = new Vuex.Store({
     state: {
         products: products,
         sizes: sizes,
-        colors: colors
+        colors: colors,
     },
     getters: {
         getProducts: state => {
             return state.products;
+        },
+        getProductById: (state) => (id) => {
+            return state.products.find(product => product.id === id);
+        },
+        getColors: state => {
+            return state.colors;
+        },
+        getSizes: state => {
+            return state.sizes;
         },
     }
 })

@@ -4,13 +4,16 @@
       <div class="upper-bar">
         <ul>
           <li>
-            <font-awesome-icon icon="truck"/> Безплатна доставка за поръчки над 100лв.
+            <font-awesome-icon icon="truck"/> 
+            Безплатна доставка за поръчки над 100лв.
           </li>
           <li>
-            <font-awesome-icon icon="undo"/> Лесно връщане: заяви до 30 дни.
+            <font-awesome-icon icon="undo"/> 
+            Лесно връщане: заяви до 30 дни.
           </li>
           <li>
-            <font-awesome-icon icon="gift"/> Подари Gift Card
+            <font-awesome-icon icon="gift"/> 
+            Подари Gift Card
           </li>
         </ul>
         <div>flag</div>
@@ -24,7 +27,12 @@
           <li>МЪЖЕ</li>
           <li>ДЕЦА</li>
         </ul>
-        <img src="../../assets/images/cloudcart_logo.jpg" alt="logo">
+        <img
+          src="../../assets/images/cloudcart_logo.jpg"
+          alt="logo"
+          class="logo"
+          @click="navigateToProducts"
+        >
         <div class="icons">
           <div class="icon-wrapper">
             <font-awesome-icon icon="search" class="icon"/>
@@ -58,26 +66,36 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    navigateToProducts() {
+      this.$router.push("/");
+    }
+  }
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .header-wrapper {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   max-width: 1140px;
 }
+
 .header {
   width: 80%;
   max-width: 1140px;
   height: auto;
   margin-left: 10%;
 }
+
 /* upper */
+
 .upper-bar-wrapper {
   background-color: #8e6d2e;
   color: white;
 }
+
 .upper-bar {
   align-items: center;
   display: flex;
@@ -87,23 +105,24 @@ export default {};
   padding: 3px 0;
   margin: 0 auto;
   max-width: 1140px;
-}
-.upper-bar ul {
-  display: flex;
-}
-.upper-bar ul li {
-  border-right: 1px solid #ad8d4f;
-  color: #e8e2d5;
-  padding: 0 30px;
-}
-.upper-bar ul li:first-child {
-  padding-left: 0;
-}
-.upper-bar ul li:last-child {
-  border-right: none;
+  ul {
+    display: flex;
+    li {
+      border-right: 1px solid #ad8d4f;
+      color: #e8e2d5;
+      padding: 0 30px;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
 }
 
 /* middle */
+
 .middle-bar {
   align-items: center;
   display: flex;
@@ -111,51 +130,68 @@ export default {};
   margin: 0 auto;
   padding: 20px 0;
   width: 1140px;
+  img {
+    width: 15%;
+  }
+  ul {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
-.middle-bar img {
-  width: 15%;
-}
-.middle-bar ul,
+
 .bottom-bar ul {
   display: flex;
   justify-content: flex-start;
 }
+
 .middle-bar ul li {
   cursor: pointer;
   font-size: 13px;
   font-weight: bold;
   padding-right: 20px;
+  &:hover {
+    color: #6b6a6a;
+  }
 }
-.middle-bar ul li:hover {
-  color: #6b6a6a;
-}
+
 /* bottom */
+
 .bottom-bar ul li {
   color: #e0e0e0;
   cursor: pointer;
   font-size: 14px;
   padding-right: 40px;
+  &:hover {
+    color: #a7a4a4;
+  }
 }
-.bottom-bar ul li:hover {
-  color: #a7a4a4;
-}
+
 /* icons */
+
 .icons {
   display: flex;
   width: 135px;
 }
+
 .icon-wrapper {
   margin-right: 10px;
+  &:last-child {
+    margin-right: 0px;
+  }
 }
-.icon-wrapper:last-child {
-  margin-right: 0px;
-}
+
 .icon {
   cursor: pointer;
   margin-right: 15px;
   font-size: 15px;
+  &:hover {
+    font-size: 1.2em;
+  }
 }
-.icon:hover {
-  font-size: 1.2em;
+
+/* logo */
+
+.logo {
+  cursor: pointer;
 }
 </style>

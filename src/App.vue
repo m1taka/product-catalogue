@@ -32,7 +32,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
 }
 ul {
   list-style: none;
@@ -46,5 +45,8 @@ ul {
 }
 .section p span {
   color: #b2b3b3;
+}
+.btn {
+  border-radius: 0;  
 }
 </style>
