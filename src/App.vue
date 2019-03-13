@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <Header/>
     <router-view></router-view>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Header from './components/shared/Header.vue';
+import Footer from './components/shared/Footer.vue';
 
 export default {
   name: 'app',
   components: {
     Header: Header,
+    Footer: Footer,
   },
 };
 </script>
@@ -42,6 +44,10 @@ ul {
   background-color: #f8f9fb;
   color: #404040;  
   font-size: 12px;
+  padding: 8px 0;
+}
+.section p {
+  margin-bottom: 0;
 }
 .section p span {
   color: #b2b3b3;

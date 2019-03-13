@@ -31,11 +31,12 @@
                   <p class="price">
                     {{ product.price }}
                     <span class="scratch">{{ product.oldPrice }}</span>
-                  </p>
+                  </p>                  
                 </router-link>
               </template>
             </div>
-          </div>
+          <pagination v-model="page" :records="45" :per-page="perPage" @paginate="getProducts"></pagination>
+        </div>
         </div>
       </div>
     </div>
@@ -45,6 +46,12 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  data(){
+    return{
+      page: 1,
+      perPage: 9
+    }
+  },
   computed: {
     ...mapGetters(["getProducts"])
   }

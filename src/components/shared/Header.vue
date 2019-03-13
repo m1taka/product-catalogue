@@ -150,7 +150,7 @@ export default {
   font-weight: bold;
   padding-right: 20px;
   &:hover {
-    color: #6b6a6a;
+    color: #8d8b8b;
   }
 }
 

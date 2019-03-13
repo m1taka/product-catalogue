@@ -59,7 +59,7 @@
         </ul>
         <hr>
         <p class="description">{{ product.description }}</p>
-        <p v-if="!product.description">Няма описание</p>
+        <p v-if="!product.description" class="description">Няма описание</p>
         <div class="delivery-wrapper">
         <p class="delivery"><font-awesome-icon icon="truck"/> Безплатна доставка за поръчки над 100лв.</p>
         <p class="delivery"><font-awesome-icon icon="undo"/> Лесно връщане: заяви до 30 дни.</p>
@@ -138,6 +138,7 @@ export default {
 }
 
 .description {
+  font-size: 11px;
   text-align: justify;
 }
 
@@ -179,10 +180,14 @@ export default {
   display: flex;
   margin-bottom: 20px;
   li {
+    cursor: pointer;
     padding: 0 22px;
     font-size: 14px;
     &:first-child {
       padding-left: 14px;
+    }
+    &:hover{
+      color: #dadada;
     }
   }
 }
@@ -231,6 +236,5 @@ input::-webkit-calendar-picker-indicator {
   border: 0;
   padding-left: 10px;
   width: 80px;
-
 }
 </style>
