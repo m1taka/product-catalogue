@@ -24,7 +24,7 @@
       <div class="filter-block">
         <p class="filter-label">Размер</p>
         <ul class="row">
-          <li class="col-sm-4" v-for="(item, index) in sizes" :key="index">{{ item }}</li>
+          <li class="col-sm-3 size-additional" v-for="(item, index) in sizes" :key="index">{{ item }}</li>
         </ul>
       </div>
       <div class="filter-block">
@@ -71,7 +71,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .filter-wrapper {
   max-width: 263px;
 }
@@ -82,10 +82,10 @@ export default {
   margin-bottom: 20px;
 }
 .filter-label {
-    border-bottom: 1px solid #129c93;
-    font-size: 17px;
-    padding-bottom: 15px;
-    padding: 0;
+  border-bottom: 1px solid #129c93;
+  font-size: 17px;
+  padding-bottom: 15px;
+  padding: 0;
 }
 .color {
   width: 100%;

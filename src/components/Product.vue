@@ -30,7 +30,7 @@
           <span>(Таблица с размери)</span>
         </p>
         <ul class="sizes">
-          <li v-for="(size, index) in getSizes" :key="index">{{size.size}}</li>
+          <li class="size-additional" v-for="(size, index) in product.sizes" :key="index" @click="setActiveSize(`${size.size}`)" :class="{ activeSize: isActiveSize(`${size.size}`) }">{{size.size}}</li>
         </ul>
         <p class="label">Цвят</p>
         <div class="color-wrapper">
@@ -38,8 +38,9 @@
             <div
               class="col-sm color"
               :style="{backgroundColor: color.color }"
-              v-for="(color, index) in getColors"
+              v-for="(color, index) in product.colors"
               :key="index"
+              @click="setActiveColor(`${color.color}`)" :class="{ activeColor: isActiveColor(`${color.color}`) }"
             ></div>
           </div>
         </div>
@@ -71,6 +72,9 @@
         <hr>
       </div>
     </div>
+    <div>
+      <p>КОМБИНИРАЙ С</p>
+    </div>
   </div>
 </transition>
 </template>
@@ -87,8 +91,13 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      product: [],
-      quantity: []
+      product: {
+        colors: [],
+        sizes: []
+      },
+      quantity: [],
+      activeSize: '',
+      activeColor: '',
     };
   },
   methods: {
@@ -97,9 +106,21 @@ export default {
         this.quantity.push(i+1);        
       }
     },
+    isActiveSize(item) {
+      return this.activeSize === item
+    },
+    setActiveSize (item){
+      this.activeSize = item;
+    },
+    isActiveColor(item) {
+      return this.activeColor === item
+    },
+    setActiveColor (item){
+      this.activeColor = item;
+    }
   },
   computed: {
-    ...mapGetters(["getProductById", "getSizes", "getColors"]),
+    ...mapGetters(["getProductById"]),
   },
   mounted() {
     this.product = this.getProductById(this.id);
@@ -117,7 +138,7 @@ export default {
 }
 
 .image-wrapper {
-  width: 555px;
+  width: 555px;  
   img {
     width: 100%;
   }
@@ -127,6 +148,7 @@ export default {
   cursor: pointer;
   width: 100px;
   margin-right: 20px;
+  height: 100%;
   img {
     width: 100%
   }
@@ -198,15 +220,22 @@ export default {
     cursor: pointer;
     padding: 0 22px;
     font-size: 14px;
-    &:first-child {
-      padding-left: 14px;
-    }
     &:hover{
       color: #dadada;
     }
   }
 }
-
+.activeSize {
+  background-color: black;
+  color: white;
+}
+.size-additional:hover {
+    background-color: black;
+}
+/* colors */
+.activeColor {
+  border: 2px solid black;
+}
 .row {
   margin: 0;
 }
@@ -231,9 +260,8 @@ input::-webkit-calendar-picker-indicator {
 .quantity {
   padding-right: 10px;
 }
-.quantity-input{  
-  border: 0;
-  padding-left: 10px;
+.quantity-input { 
+  padding: 5px 0 5px 10px;
   width: 80px;
 }
 </style>

@@ -54,16 +54,30 @@ ul {
   color: #b2b3b3;
 }
 
+/* custom bootstrap btn */
 .btn {
   border-radius: 0;  
 }
 
+/* size */
+.size-additional {
+  border: 1px solid #f8f9fb;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  &:hover {
+    background-color: #ad8c4b;
+  }
+}
+
+/* color */
 .color-wrapper {
   display: flex;
   height: 30px;
   width: 100%;
 }
-
 .color {
   border: 1px solid #ffff;
   cursor: pointer;

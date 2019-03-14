@@ -30,7 +30,7 @@
           <transition name="fade" appear>
             <div class="container" v-if="getProducts">
               <div class="row">
-                <template v-for="(product, index) in getProducts">
+                <template v-for="(product, index) in filteredProducts">
                   <router-link
                     tag="div"
                     :to="`/products/${product.id}`"
@@ -50,7 +50,7 @@
                   </router-link>
                 </template>
               </div>
-              <pagination v-model="page" :records="45" :per-page="perPage" @paginate="getProducts"></pagination>
+              <pagination v-model="current_page" :records="45" :per-page="perPage"></pagination>
             </div>
           </transition>
         </div>
@@ -70,12 +70,29 @@ export default {
   data() {
     return {
       isClicked: true,
-      page: 1,
-      perPage: 9
+      current_page: 1,
+      perPage: 9,
+      name:''
     };
   },
   computed: {
-    ...mapGetters(["getProducts"])
+    ...mapGetters(["getProducts"]),
+    filteredProducts: function() {
+    	let products = []
+    	if(this.name == ''){
+      	products = this.getProducts
+      }
+      else
+      {
+        products = this.getProducts.filter(product => {
+          if (product.name == this.name){
+            return true
+          }
+          return false
+        })
+      }
+      return products.slice((this.current_page-1)*9, this.current_page*9)
+    }
   }
 };
 </script>
