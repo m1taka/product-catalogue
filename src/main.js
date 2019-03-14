@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import { store } from './store/store.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTruck, faUndo, faGift, faSearch, faHeart, faUser, faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { faTruck, faUndo, faGift, faSearch, faHeart, faUser, faShoppingBag, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faGooglePlus, faPinterest } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Pagination from 'vue-pagination-2';
@@ -19,7 +19,9 @@ library.add(
   faFacebook, 
   faTwitter, 
   faGooglePlus, 
-  faPinterest
+  faPinterest,
+  faChevronLeft,
+  faChevronRight
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

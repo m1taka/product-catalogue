@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -39,6 +39,7 @@ ul {
   list-style: none;
   margin-bottom: 0;
 }
+
 /* section */
 .section {
   background-color: #f8f9fb;
@@ -52,7 +53,66 @@ ul {
 .section p span {
   color: #b2b3b3;
 }
+
 .btn {
   border-radius: 0;  
+}
+
+.color-wrapper {
+  display: flex;
+  height: 30px;
+  width: 100%;
+}
+
+.color {
+  border: 1px solid #ffff;
+  cursor: pointer;
+  width: 100%;  
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+/* animations */
+/* fade */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-leave-active {
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+/* slide */
+.slide-enter {
+  opacity: 0;
+}
+.slide-enter-active {
+  animation: slide-in 1s ease-out forwards;
+  transition: opacity .5s;
+}
+.slide-leave-active {
+  animation: slide-out 1s ease-out forwards;
+  transition: opacity .5s;
+  opacity: 0;
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(-30px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-30px);
+  }
 }
 </style>

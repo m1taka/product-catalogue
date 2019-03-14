@@ -1,5 +1,6 @@
 <template>
-  <div>
+<transition name="fade">
+  <div>     
     <div class="section">
       <p>
         Начало / Жени / Пуловери и жилетки /
@@ -32,7 +33,7 @@
         <div class="color-wrapper">
           <div class="row">
             <div
-              class="col-sm"
+              class="col-sm color"
               :style="{backgroundColor: color.color }"
               v-for="(color, index) in getColors"
               :key="index"
@@ -68,6 +69,7 @@
       </div>
     </div>
   </div>
+</transition>
 </template>
 
 <script>
@@ -91,7 +93,7 @@ export default {
       for (let i = 0; i < 100; i++) {        	
         this.quantity.push(i+1);        
       }
-    }
+    },
   },
   computed: {
     ...mapGetters(["getProductById", "getSizes", "getColors"]),
@@ -103,7 +105,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .product-wrapper {
   display: flex;
   justify-content: center;
@@ -192,24 +194,8 @@ export default {
   }
 }
 
-.color-wrapper {
-  display: flex;
-  height: 60px;
-  width: 100%;
-}
-
 .row {
   margin: 0;
-}
-
-.col-sm {
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  &:hover {
-    width: 50px;
-    height: 50px;
-  }
 }
 
 .delivery-wrapper {
