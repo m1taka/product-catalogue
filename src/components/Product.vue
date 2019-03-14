@@ -1,88 +1,101 @@
 <template>
-<transition name="fade">
-  <div>     
-    <div class="section">
-      <p>
-        Начало / Жени / Пуловери и жилетки /
-        <span>{{ product.name }} {{ product.mark }}</span>
-      </p>
-    </div>
-    <div class="product-wrapper">
-      <div class="image-wrapper-small" v-if="product.image">
-        <img :src="require(`../assets/images/${product.image}`)" alt="image-small">
+  <transition name="fade">
+    <div>
+      <div class="section">
+        <p>
+          Начало / Жени / Пуловери и жилетки /
+          <span>{{ product.name }} {{ product.mark }}</span>
+        </p>
       </div>
-      <div class="image-wrapper" v-if="product.image">
-        <img :src="require(`../assets/images/${product.image}`)" alt="image">
-      </div>
-      <div class="details" v-if="product">
-        <h3>{{ product.name }} {{ product.mark }}</h3>
-        <div class="info">
-          <div class="info-price">
-            <span class="price">{{ product.price }}</span>
-            <p class="old-price">
-              Стара цена:
-              <span>{{ product.oldPrice }}</span>
+      <div class="product-wrapper">
+        <div class="image-wrapper-small" v-if="product.image">
+          <img :src="require(`../assets/images/${product.image}`)" alt="image-small">
+        </div>
+        <div class="image-wrapper" v-if="product.image">
+          <img :src="require(`../assets/images/${product.image}`)" alt="image">
+        </div>
+        <div class="details" v-if="product">
+          <h3>{{ product.name }} {{ product.mark }}</h3>
+          <div class="info">
+            <div class="info-price">
+              <span class="price">{{ product.price }}</span>
+              <p class="old-price">
+                Стара цена:
+                <span>{{ product.oldPrice }}</span>
+              </p>
+            </div>
+            <div class="stock-number">SKU: {{ product.stockNumber }}</div>
+          </div>
+          <p class="label">
+            Размер
+            <span>(Таблица с размери)</span>
+          </p>
+          <ul class="sizes">
+            <li
+              class="size-additional"
+              v-for="(size, index) in product.sizes"
+              :key="index"
+              @click="setActiveSize(`${size.size}`)"
+              :class="{ activeSize: isActiveSize(`${size.size}`) }"
+            >{{size.size}}</li>
+          </ul>
+          <p class="label">Цвят</p>
+          <div class="color-wrapper">
+            <div class="row">
+              <div
+                class="col-sm color"
+                :style="{backgroundColor: color.color }"
+                v-for="(color, index) in product.colors"
+                :key="index"
+                @click="setActiveColor(`${color.color}`)"
+                :class="{ activeColor: isActiveColor(`${color.color}`) }"
+              ></div>
+            </div>
+          </div>
+          <br>
+          <p class="label">Количество</p>
+          <div class="quantity-wrapper">
+            <Quantity/>
+            <div>
+              <button class="btn btn-dark">
+                <font-awesome-icon icon="shopping-bag"/>ДОБАВИ В КОЛИЧКАTA
+              </button>
+            </div>
+          </div>
+          <ul class="description-label-wrapper">
+            <li class="description-label active">Описание</li>
+            <li class="description-label">Материали</li>
+            <li class="description-label">Поддръжка</li>
+          </ul>
+          <hr>
+          <p class="description">{{ product.description }}</p>
+          <p v-if="!product.description" class="description">Няма описание</p>
+          <div class="delivery-wrapper">
+            <p class="delivery">
+              <font-awesome-icon icon="truck"/>Безплатна доставка за поръчки над 100лв.
+            </p>
+            <p class="delivery">
+              <font-awesome-icon icon="undo"/>Лесно връщане: заяви до 30 дни.
             </p>
           </div>
-          <div class="stock-number">SKU: {{ product.stockNumber }}</div>
+          <hr>
         </div>
-        <p class="label">Размер
-          <span>(Таблица с размери)</span>
-        </p>
-        <ul class="sizes">
-          <li class="size-additional" v-for="(size, index) in product.sizes" :key="index" @click="setActiveSize(`${size.size}`)" :class="{ activeSize: isActiveSize(`${size.size}`) }">{{size.size}}</li>
-        </ul>
-        <p class="label">Цвят</p>
-        <div class="color-wrapper">
-          <div class="row">
-            <div
-              class="col-sm color"
-              :style="{backgroundColor: color.color }"
-              v-for="(color, index) in product.colors"
-              :key="index"
-              @click="setActiveColor(`${color.color}`)" :class="{ activeColor: isActiveColor(`${color.color}`) }"
-            ></div>
-          </div>
-        </div>
-        <br>
-        <p class="label">Количество</p>
-        <div class="quantity-wrapper">
-          <div class="quantity">
-            <input type="number" list="quantity" class="quantity-input">
-            <datalist id="quantity">
-              <option :value="item" v-for="(item, index) in quantity" :key="index">{{item}}</option>
-            </datalist>
-          </div>
-            <div>
-            <button class="btn btn-dark"><font-awesome-icon icon="shopping-bag"/> ДОБАВИ В КОЛИЧКАTA</button>
-            </div>
-        </div>
-        <ul class="description-label-wrapper">
-          <li class="description-label active">Описание</li>
-          <li class="description-label">Материали</li>
-          <li class="description-label">Поддръжка</li>
-        </ul>
-        <hr>
-        <p class="description">{{ product.description }}</p>
-        <p v-if="!product.description" class="description">Няма описание</p>
-        <div class="delivery-wrapper">
-        <p class="delivery"><font-awesome-icon icon="truck"/> Безплатна доставка за поръчки над 100лв.</p>
-        <p class="delivery"><font-awesome-icon icon="undo"/> Лесно връщане: заяви до 30 дни.</p>
-        </div>
-        <hr>
+      </div>
+      <div>
+        <p>КОМБИНИРАЙ С</p>
       </div>
     </div>
-    <div>
-      <p>КОМБИНИРАЙ С</p>
-    </div>
-  </div>
-</transition>
+  </transition>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import Quantity from "./shared/Quantity.vue";
 
 export default {
+  components: {
+    Quantity: Quantity
+  },
   watch: {
     $route(to, from) {
       this.id = to.params.id;
@@ -96,35 +109,29 @@ export default {
         sizes: []
       },
       quantity: [],
-      activeSize: '',
-      activeColor: '',
+      activeSize: "",
+      activeColor: ""
     };
   },
   methods: {
-    getQuantity() {
-      for (let i = 0; i < 100; i++) {        	
-        this.quantity.push(i+1);        
-      }
-    },
     isActiveSize(item) {
-      return this.activeSize === item
+      return this.activeSize === item;
     },
-    setActiveSize (item){
+    setActiveSize(item) {
       this.activeSize = item;
     },
     isActiveColor(item) {
-      return this.activeColor === item
+      return this.activeColor === item;
     },
-    setActiveColor (item){
+    setActiveColor(item) {
       this.activeColor = item;
     }
   },
   computed: {
-    ...mapGetters(["getProductById"]),
+    ...mapGetters(["getProductById"])
   },
   mounted() {
     this.product = this.getProductById(this.id);
-    this.getQuantity();
   }
 };
 </script>
@@ -138,7 +145,7 @@ export default {
 }
 
 .image-wrapper {
-  width: 555px;  
+  width: 555px;
   img {
     width: 100%;
   }
@@ -150,7 +157,7 @@ export default {
   margin-right: 20px;
   height: 100%;
   img {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -198,7 +205,10 @@ export default {
   }
 }
 
-.old-price, .label, .delivery, .description-label {
+.old-price,
+.label,
+.delivery,
+.description-label {
   font-size: 12px;
 }
 
@@ -208,7 +218,7 @@ export default {
 }
 
 .label span {
-  color: #ceba96;  
+  color: #ceba96;
 }
 
 /* sizes */
@@ -220,7 +230,7 @@ export default {
     cursor: pointer;
     padding: 0 22px;
     font-size: 14px;
-    &:hover{
+    &:hover {
       color: #dadada;
     }
   }
@@ -230,7 +240,7 @@ export default {
   color: white;
 }
 .size-additional:hover {
-    background-color: black;
+  background-color: black;
 }
 /* colors */
 .activeColor {
@@ -240,28 +250,17 @@ export default {
   margin: 0;
 }
 
-.delivery-wrapper {
-  background-color: #f8f9fb;
-  padding-left: 15px;  
-  .delivery {
-    color: #ad8d4f;
-  }
-}
-
-input::-webkit-calendar-picker-indicator {
-  opacity: 100;
-}
-
 .quantity-wrapper {
   align-items: center;
   display: flex;
   margin-bottom: 15px;
 }
-.quantity {
-  padding-right: 10px;
-}
-.quantity-input { 
-  padding: 5px 0 5px 10px;
-  width: 80px;
+
+.delivery-wrapper {
+  background-color: #f8f9fb;
+  padding-left: 15px;
+  .delivery {
+    color: #ad8d4f;
+  }
 }
 </style>

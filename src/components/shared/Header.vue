@@ -149,6 +149,7 @@ export default {
   font-size: 13px;
   font-weight: bold;
   padding-right: 20px;
+  white-space: nowrap;
   &:hover {
     color: #8d8b8b;
   }
@@ -157,7 +158,7 @@ export default {
 /* bottom */
 
 .bottom-bar ul li {
-  color: #e0e0e0;
+  color: #666666;
   cursor: pointer;
   font-size: 14px;
   padding-right: 40px;
