@@ -8,6 +8,9 @@
       </p>
     </div>
     <div class="product-wrapper">
+      <div class="image-wrapper-small" v-if="product.image">
+        <img :src="require(`../assets/images/${product.image}`)" alt="image-small">
+      </div>
       <div class="image-wrapper" v-if="product.image">
         <img :src="require(`../assets/images/${product.image}`)" alt="image">
       </div>
@@ -50,7 +53,7 @@
             </datalist>
           </div>
             <div>
-            <button class="btn btn-dark"><font-awesome-icon icon="shopping-bag"/> ДОБАВИ В КОЛИЧКА</button>
+            <button class="btn btn-dark"><font-awesome-icon icon="shopping-bag"/> ДОБАВИ В КОЛИЧКАTA</button>
             </div>
         </div>
         <ul class="description-label-wrapper">
@@ -108,15 +111,25 @@ export default {
 <style lang="scss" scoped>
 .product-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 2rem auto;
+  max-width: 1140px;
 }
 
 .image-wrapper {
-  width: 450px;
+  width: 555px;
+  img {
+    width: 100%;
+  }
 }
 
-.image-wrapper img {
-  width: 100%;
+.image-wrapper-small {
+  cursor: pointer;
+  width: 100px;
+  margin-right: 20px;
+  img {
+    width: 100%
+  }
 }
 
 .details {
