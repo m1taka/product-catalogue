@@ -8,7 +8,7 @@
         </p>
       </div>
       <div class="content-container-wrapper">
-        <h3 class="content-head">ПУЛОВЕРИ И ЖИЛЕТКИ</h3>
+        <h3 class="content-title">ПУЛОВЕРИ И ЖИЛЕТКИ</h3>
         <div class="options-wrapper">
           <button class="btn btn-dark" @click="isClicked = !isClicked">
             <div v-if="isClicked">
@@ -26,10 +26,11 @@
           </div>
         </div>
         <div class="container-wrapper">
+          <!-- FILTERS -->
           <transition name="slide" appear type="animation">
             <Filters v-if="isClicked == true"/>
           </transition>
-
+          <!-- LISTING -->
           <transition name="fade" appear>
             <div class="container" v-if="getProducts">
               <div class="row">
@@ -46,7 +47,7 @@
                     >
                     <div>{{ product.name }}</div>
                     <p class="product-mark">{{ product.mark }}</p>
-                    <p class="price">
+                    <p class="price-list">
                       {{ product.price }}
                       <span class="scratch">{{ product.oldPrice }}</span>
                     </p>
@@ -54,7 +55,7 @@
                 </template>
               </div>
               <div class="pagination-wrapper">
-                <pagination v-model="current_page" :records="45" :per-page="perPage"></pagination>
+                <pagination v-model="current_page" :records="45" :per-page="perPage" @paginate="setPage"></pagination>
               </div>
             </div>
           </transition>
@@ -82,6 +83,11 @@ export default {
       name: ""
     };
   },
+  methods: {
+  setPage: function(page) {
+      this.current_page = page;
+    }
+  },
   computed: {
     ...mapGetters(["getProducts"]),
     filteredProducts: function() {
@@ -107,7 +113,7 @@ export default {
   margin: 50px auto;
   max-width: 1140px;
 }
-.content-head {
+.content-title {
   color: #333333;
 }
 .container-wrapper {
@@ -132,25 +138,9 @@ export default {
 .sort p {
   margin-bottom: 0;
 }
-.product-mark {
-  color: #b8b8b8;
-  margin-bottom: 0.5rem;
-}
-.price {
-  font-size: 13px;
-  font-weight: bold;
-}
-.scratch {
-  text-decoration: line-through;
-  font-weight: 500;
-}
 .btn.btn-dark {
   white-space: nowrap;
   width: 150px;
   font-size: 12px;
-}
-.pagination-wrapper {
-  float: right;
-  margin-bottom: 20px;
 }
 </style>

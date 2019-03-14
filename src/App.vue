@@ -72,6 +72,20 @@ ul {
   }
 }
 
+/* list info styles */
+.product-mark {
+  color: #b8b8b8;
+  margin-bottom: 0.5rem;
+}
+.price-list {
+  font-size: 13px;
+  font-weight: bold;
+}
+.scratch {
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
 /* color */
 .color-wrapper {
   display: flex;
@@ -156,6 +170,10 @@ ul {
 }
 
 /* pagination custom styles */
+.pagination-wrapper {
+  float: right;
+  margin-bottom: 20px;
+}
 .page-item.active .page-link {
   background-color: #ad8d4f;
   border-color: #ad8d4f;

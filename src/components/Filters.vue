@@ -99,7 +99,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getProductById", "getSizes", "getColors"])
+    ...mapGetters(["getSizes", "getColors"])
   }
 };
 </script>
