@@ -253,7 +253,7 @@ export default {
     padding: 0 5px;
   }
   .menu-icon {
-    font-size: 50px;
+    font-size: 40px;
   }
   .bottom-bar ul {
     background-color: #ffffff;
@@ -263,9 +263,10 @@ export default {
     text-align: left;
     z-index: 2;
     li {
-      border: 1px solid #e2e2e2;
-      font-size: 30px;
+      border: 1px solid #f7f7f7;
+      font-size: 16px;
       padding: 5px;
+      width: 100%;
     }
   }
 }

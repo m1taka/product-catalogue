@@ -40,7 +40,7 @@
         <p>
           <span>Copyright &copy; {{ date }}</span> yoursite.com
           <span>| eCommerce website by</span> CloudCart
-        </p>        
+        </p>
         <div class="icons">
           <div class="icon-wrapper">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"/>
@@ -63,10 +63,10 @@
 
 <script>
 export default {
-  data(){
+  data() {
     return {
       date: new Date().getFullYear()
-    }
+    };
   }
 };
 </script>
@@ -127,38 +127,40 @@ export default {
   display: flex;
 }
 
-.icon-wrapper, .footer-block ul li, .footer-block p {
+.icon-wrapper,
+.footer-block ul li,
+.footer-block p {
   cursor: pointer;
 }
 .mobile {
   display: none;
 }
 
-@media screen and (max-width: 1000px) {
-
+@media screen and (max-width: 500px) {
   .mobile {
     display: initial;
   }
   .desktop {
     display: none;
   }
-  .footer-block {
-    padding: 0;
-    padding-bottom: 20px;
-  }
   .blocks {
     flex-direction: column;
+    padding-top: 50px;
+    margin: 0 auto;
   }
-}
-@media screen and (max-width: 500px){
-  .blocks {
-  flex-direction: column;
-  padding-top: 50px;
-  margin: 0 auto;
+  .footer-block {
+    padding: 15px 0;
+    text-align: center;
+    margin: auto;
   }
   .footer-info {
     flex-direction: column-reverse;
-        padding-bottom: 5px;
+    p {
+    padding-bottom: 10px;
+    }
+  }
+  .icons {
+    padding-bottom: 10px;
   }
 }
 </style>

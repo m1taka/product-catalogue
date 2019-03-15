@@ -43,7 +43,7 @@
                   <router-link
                     tag="div"
                     :to="`/products/${product.id}`"
-                    class="col-sm-4"
+                    class="col-lg-4 col-sm-5 col-md-3"
                     :key="index"
                   >
                     <img
@@ -132,7 +132,7 @@ export default {
   justify-content: space-between;
   margin: 30px 0;
 }
-.col-sm-4 {
+.col-sm-5 {
   cursor: pointer;
 }
 .sort-wrapper {
