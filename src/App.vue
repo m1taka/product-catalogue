@@ -202,17 +202,17 @@ ul {
   opacity: 0;
 }
 .slide-enter-active {
-  animation: slide-in 1s ease-out forwards;
-  transition: opacity .5s;
+  animation: slide-in .3s ease-in forwards;
+  transition: opacity .3s;
 }
 .slide-leave-active {
-  animation: slide-out 1s ease-out forwards;
-  transition: opacity .5s;
+  animation: slide-out .3s ease-out forwards;
+  transition: opacity .3s;
   opacity: 0;
 }
 @keyframes slide-in {
   from {
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     transform: translateX(0);
@@ -223,7 +223,16 @@ ul {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-30px);
+    transform: translateX(-20px);
+  }
+}
+
+@media screen and (max-width: 1000px){
+    .filter {
+      position: absolute;
+      z-index: 1;
+      background-color: #ffffff;
+      padding: 0 10px;
   }
 }
 </style>

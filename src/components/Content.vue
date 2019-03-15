@@ -21,7 +21,12 @@
             </div>
           </button>
           <div class="sort-wrapper">
-            <div class="sort"><p>Сортирай по дата</p></div>
+            <select class="sort">
+              <option value="" selected>Сортирай по дата</option>
+              <option value="">Сортирай по размер</option>
+              <option value="">Сортирай по азбучен ред</option>
+            </select>
+            <!-- <div class="sort"><p>Сортирай по дата</p></div> -->
             <Quantity/>
           </div>
         </div>
@@ -135,12 +140,38 @@ export default {
   justify-content: flex-end;
   padding-right: 15px;
 }
-.sort p {
-  margin-bottom: 0;
+.sort {
+  padding: 8px;
+  margin: 10px;
 }
+.sort p {
+  margin-bottom: 0; 
+  border: 1px solid black;
+  padding: 6px;
+}
+
 .btn.btn-dark {
   white-space: nowrap;
   width: 150px;
   font-size: 12px;
+}
+
+@media screen  and (max-width: 1000px){
+  .options-wrapper, .sort-wrapper {
+    flex-direction: column;    
+  }
+  .sort {
+    padding: 10px 0;
+  }
+  .sort-wrapper {
+    margin: 10px 0;
+    padding: 0;
+  }
+  .quantity {
+    padding: 0px
+  }
+  .quantity-input {
+    width: 100%;
+  }
 }
 </style>

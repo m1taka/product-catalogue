@@ -142,4 +142,8 @@ export default {
 ul li {
   font-size: 12px;
 }
+
+@media screen and (max-width: 1000){
+
+}
 </style>

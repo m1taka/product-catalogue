@@ -27,12 +27,14 @@
           <li>МЪЖЕ</li>
           <li>ДЕЦА</li>
         </ul>
-        <img
-          src="../../assets/images/cloudcart_logo.jpg"
-          alt="logo"
-          class="logo"
-          @click="navigateToProducts"
-        >
+        <div>          
+          <img
+            src="../../assets/images/cloudcart_logo.jpg"
+            alt="logo"
+            class="logo"
+            @click="navigateToProducts"
+          >          
+        </div>
         <div class="icons">
           <div class="icon-wrapper">
             <font-awesome-icon icon="search" class="icon"/>
@@ -130,9 +132,6 @@ export default {
   margin: 0 auto;
   padding: 20px 0;
   width: 1140px;
-  img {
-    width: 15%;
-  }
   ul {
     display: flex;
     justify-content: flex-start;
@@ -194,5 +193,25 @@ export default {
 
 .logo {
   cursor: pointer;
+  width: 15%;
+}
+
+@media screen and (max-width: 1000px) {
+  .upper-bar-wrapper {
+    display: none;
+  }
+  .middle-bar {    
+    width: 100%;
+    padding: 5px 0;
+    ul {
+      display: none;
+    }
+  }
+  .bottom-bar {
+    display: none;
+  }
+  .logo {
+    width: 80%;
+  }
 }
 </style>

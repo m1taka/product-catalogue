@@ -36,10 +36,11 @@
         </div>
       </div>
       <div class="footer-info">
+        <p class="mobile">При възникване на спор, можете да ползвате сайта ОРС</p>
         <p>
-          <span>Copyright © 2018</span> yoursite.com
+          <span>Copyright &copy; {{ date }}</span> yoursite.com
           <span>| eCommerce website by</span> CloudCart
-        </p>
+        </p>        
         <div class="icons">
           <div class="icon-wrapper">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }"/>
@@ -54,14 +55,20 @@
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'pinterest' }"/>
           </div>
         </div>
-        <p>При възникване на спор, можете да ползвате сайта ОРС</p>
+        <p class="desktop">При възникване на спор, можете да ползвате сайта ОРС</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      date: new Date().getFullYear()
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -121,5 +128,36 @@ export default {};
 
 .icon-wrapper, .footer-block ul li, .footer-block p {
   cursor: pointer;
+}
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+  .mobile {
+    display: initial;
+  }
+  .desktop {
+    display: none;
+  }
+  .footer-block {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+  .blocks {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 500px){
+  .blocks {
+  flex-direction: column;
+  padding-top: 50px;
+  margin: 0 auto;
+  }
+  .footer-info {
+    flex-direction: column-reverse;
+        padding-bottom: 5px;
+  }
 }
 </style>

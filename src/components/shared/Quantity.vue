@@ -40,4 +40,12 @@ export default {
 input::-webkit-calendar-picker-indicator {
   opacity: 100;
 }
+@media screen  and (max-width: 1000px){
+  .quantity {
+    padding: 0px
+  }
+  .quantity-input {
+    width: 100%;
+  }
+}
 </style>

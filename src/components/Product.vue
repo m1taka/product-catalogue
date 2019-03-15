@@ -330,4 +330,22 @@ export default {
 .col-sm-3 {
   cursor: pointer;
 }
+
+
+@media screen and (max-width: 1000px){
+  .image-wrapper-small {
+    display: none;
+  }
+  .product-wrapper {
+    flex-direction: column;
+  }
+  .image-wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+  .combinate-header {
+    justify-content: center;
+    padding-left: 0px;
+  }
+}
 </style>
