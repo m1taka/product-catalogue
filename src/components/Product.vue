@@ -99,7 +99,7 @@
               <div class="row">
                 <template v-for="(p, index) in filteredProducts">
                   <div
-                    class="col-lg-4 col-sm-5 col-md-3"
+                    class="col-lg-3 col-sm-5 col-md-3"
                     :key="index"
                   >
                     <img

@@ -26,7 +26,6 @@
               <option value="">Сортирай по размер</option>
               <option value="">Сортирай по азбучен ред</option>
             </select>
-            <!-- <div class="sort"><p>Сортирай по дата</p></div> -->
             <Quantity/>
           </div>
         </div>
