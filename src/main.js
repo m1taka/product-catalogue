@@ -3,12 +3,13 @@ import App from './App.vue'
 import router from './router'
 import { store } from './store/store.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTruck, faUndo, faGift, faSearch, faHeart, faUser, faShoppingBag, faChevronLeft, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faTruck, faUndo, faGift, faSearch, faHeart, faUser, faShoppingBag, faChevronLeft, faChevronRight, faChevronDown, faChevronUp, faBars } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faGooglePlus, faPinterest } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Pagination from 'vue-pagination-2'
 
 library.add(
+  faBars,
   faTruck, 
   faUndo, 
   faGift, 
@@ -22,7 +23,8 @@ library.add(
   faPinterest,
   faChevronLeft,
   faChevronRight,
-  faChevronDown
+  faChevronDown,
+  faChevronUp
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

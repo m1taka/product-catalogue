@@ -10,13 +10,13 @@
       <div class="content-container-wrapper">
         <h3 class="content-title">ПУЛОВЕРИ И ЖИЛЕТКИ</h3>
         <div class="options-wrapper">
-          <button class="btn btn-dark" @click="isClicked = !isClicked">
+          <button class="btn btn-dark dark-additional" @click="isClicked = !isClicked">
             <div v-if="isClicked">
               <font-awesome-icon icon="chevron-left"/>
-              СКРИЙ ФИЛТРИ
+              <span class="btn-text desktop">СКРИЙ ФИЛТРИ</span>
             </div>
             <div v-if="!isClicked">
-              ПОКАЖИ ФИЛТРИ
+              <span class="btn-text desktop">ПОКАЖИ ФИЛТРИ</span>
               <font-awesome-icon icon="chevron-right"/>
             </div>
           </button>
@@ -117,6 +117,7 @@ export default {
 .content-container-wrapper {
   margin: 50px auto;
   max-width: 1140px;
+  padding: 0 10px;
 }
 .content-title {
   color: #333333;
@@ -141,7 +142,7 @@ export default {
   padding-right: 15px;
 }
 .sort {
-  padding: 8px;
+  padding: 5px;
   margin: 10px;
 }
 .sort p {
@@ -150,28 +151,35 @@ export default {
   padding: 6px;
 }
 
-.btn.btn-dark {
+.dark-additional {
   white-space: nowrap;
   width: 150px;
   font-size: 12px;
 }
 
+.btn-text{
+  padding: 0 5px;
+}
+
+.mobile {
+  display: none;
+}
+
 @media screen  and (max-width: 1000px){
-  .options-wrapper, .sort-wrapper {
-    flex-direction: column;    
+  .mobile { 
+    display: unset;
   }
-  .sort {
-    padding: 10px 0;
+  .desktop {
+    display: none;
   }
   .sort-wrapper {
-    margin: 10px 0;
+    margin: 0;
     padding: 0;
-  }
-  .quantity {
-    padding: 0px
-  }
-  .quantity-input {
     width: 100%;
+    justify-content: center;
+  }
+  .dark-additional{
+    width: 50px;
   }
 }
 </style>

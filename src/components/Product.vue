@@ -49,7 +49,7 @@
           <div class="color-wrapper">
             <div class="row">
               <div
-                class="col-sm color"
+                class="col-sm-3 color"
                 :style="{backgroundColor: color.color }"
                 v-for="(color, index) in product.colors"
                 :key="index"
@@ -192,6 +192,7 @@ export default {
   justify-content: flex-start;
   margin: 2rem auto 4rem;
   max-width: 1140px;
+  padding: 0 10px;
 }
 
 .image-wrapper {
@@ -280,6 +281,7 @@ export default {
     cursor: pointer;
     padding: 0 22px;
     font-size: 14px;
+    width: 50%;
     &:hover {
       color: #dadada;
     }

@@ -45,7 +45,7 @@ input::-webkit-calendar-picker-indicator {
     padding: 0px
   }
   .quantity-input {
-    width: 100%;
+    width: 80%;
   }
 }
 </style>

@@ -16,17 +16,27 @@
             Подари Gift Card
           </li>
         </ul>
-        <div>flag</div>
+        
+        <div class="lang">
+          <div class="flag-wrapper">
+          <img
+            src="../../assets/images/bulgaria-flag.png"
+            alt="flag"
+            class="flag"
+          > </div>  <div class="icon-wrapper-down"><font-awesome-icon icon="chevron-down"/></div></div>
       </div>
     </div>
     <div class="header-wrapper">
-      <div class="header"></div>
       <div class="middle-bar">
+        <div class="menu-btn mobile" @click="openedMenu = !openedMenu">
+          <font-awesome-icon icon="bars" class="menu-icon"/>
+        </div>
         <ul>
           <li>ЖЕНИ</li>
           <li>МЪЖЕ</li>
           <li>ДЕЦА</li>
         </ul>
+
         <div>          
           <img
             src="../../assets/images/cloudcart_logo.jpg"
@@ -50,25 +60,30 @@
           </div>
         </div>
       </div>
-      <div class="bottom-bar">
-        <ul>
-          <li>Ново</li>
-          <li>Дрехи</li>
-          <li>Обувки</li>
-          <li>Чанти</li>
-          <li>Аксесоари</li>
-          <li>Марки</li>
-          <li>Gift Card</li>
-          <li>Fashion Insider</li>
-          <li>SALE</li>
-        </ul>
-      </div>
+        <div class="bottom-bar" :class="{ 'bottom-bar-inactive':!openedMenu}">
+          <ul>
+            <li>Ново</li>
+            <li>Дрехи</li>
+            <li>Обувки</li>
+            <li>Чанти</li>
+            <li>Аксесоари</li>
+            <li>Марки</li>
+            <li>Gift Card</li>
+            <li>Fashion Insider</li>
+            <li>SALE</li>
+          </ul>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      openedMenu: false
+    }
+  },
   methods: {
     navigateToProducts() {
       this.$router.push("/");
@@ -82,13 +97,7 @@ export default {
   width: 100%;
   margin: 0 auto 1rem;
   max-width: 1140px;
-}
-
-.header {
-  width: 80%;
-  max-width: 1140px;
-  height: auto;
-  margin-left: 10%;
+  padding: 0 10px;
 }
 
 /* upper */
@@ -96,6 +105,7 @@ export default {
 .upper-bar-wrapper {
   background-color: #8e6d2e;
   color: white;
+  padding: 0 10px;
 }
 
 .upper-bar {
@@ -131,7 +141,7 @@ export default {
   justify-content: space-between;
   margin: 0 auto;
   padding: 20px 0;
-  width: 1140px;
+  max-width: 1140px;
   ul {
     display: flex;
     justify-content: flex-start;
@@ -141,6 +151,10 @@ export default {
 .bottom-bar ul {
   display: flex;
   justify-content: flex-start;
+}
+
+.bottom-bar-inactive {
+  display: unset;
 }
 
 .middle-bar ul li {
@@ -195,8 +209,33 @@ export default {
   cursor: pointer;
   width: 15%;
 }
+.flag-wrapper {
+  width: 10%;
+  padding-right: 5px
+}
+.flag {
+  width: 100%;
+}
+.icon-wrapper-down {
+  font-size: 15px;
+}
+.lang {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.mobile {
+  display: none;
+}
 @media screen and (max-width: 1000px) {
+  .mobile {
+    display: unset;
+  }
+  .desktop, .bottom-bar-inactive {
+    display: none;
+  }
   .upper-bar-wrapper {
     display: none;
   }
@@ -207,11 +246,27 @@ export default {
       display: none;
     }
   }
-  .bottom-bar {
-    display: none;
-  }
   .logo {
     width: 80%;
+  }
+  .menu-btn {
+    padding: 0 5px;
+  }
+  .menu-icon {
+    font-size: 50px;
+  }
+  .bottom-bar ul {
+    background-color: #ffffff;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    z-index: 2;
+    li {
+      border: 1px solid #e2e2e2;
+      font-size: 30px;
+      padding: 5px;
+    }
   }
 }
 </style>

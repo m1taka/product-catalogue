@@ -74,6 +74,7 @@ export default {
 <style lang="scss" scoped>
 .footer-wrapper {
   background-color: #f5f5f5;
+  padding: 0 10px;
 }
 
 .footer {

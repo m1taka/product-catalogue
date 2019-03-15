@@ -66,7 +66,7 @@ ul {
   cursor: pointer;
   display: flex;
   height: 50px;
-  justify-content: center;
+  justify-content: center;  
   &:hover {
     background-color: #ad8c4b;
   }
@@ -88,17 +88,31 @@ ul {
 
 /* color */
 .color-wrapper {
-  display: flex;
-  height: 30px;
-  width: 100%;
+  // display: flex;
+  // height: 30px;
+  // width: 100%;
 }
 .color {
   border: 1px solid #ffff;
   cursor: pointer;
-  width: 100%;  
+  // width: 100%; 
+  width: 33%;
+  height: 50px; 
   &:hover {
     opacity: 0.5;
   }
+}
+
+/* select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+select::-ms-expand {
+    display: none;
 }
 
 /* checkbox */
@@ -139,7 +153,7 @@ ul {
   background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a background */
 .checkbox-container input:checked ~ .checkmark {
   background-color: rgb(0, 0, 0);
 }
@@ -184,16 +198,55 @@ ul {
 .VuePagination__count {
   display: none;
 }
+
+/* slider */
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  background: black;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #ad8c4b;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+
 /* animations */
 /* fade */
 .fade-enter {
   opacity: 0;
 }
 .fade-enter-active {
-  transition: opacity 1s;
+  transition: opacity .3s;
 }
 .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity .3s;
   opacity: 0;
 }
 
@@ -231,8 +284,12 @@ ul {
     .filter {
       position: absolute;
       z-index: 1;
-      background-color: #ffffff;
+      background-color: #f7f7f7;
       padding: 0 10px;
+      width: 50%;
+  }
+  .size-additional {
+    width: 33%;
   }
 }
 </style>
